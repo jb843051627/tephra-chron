@@ -83,7 +83,7 @@ func (l *Lab) OpenSession(ctx context.Context, v model.InstrumentSession) error 
 	if err := transactionMarker(l.store, v.SequenceID); err != nil {
 		return err
 	}
-	if err := l.store.PutSession(v); err != nil {
+	if err := l.store.PutInstrumentSession(v); err != nil {
 		return err
 	}
 	return l.store.PutSequence(seq)
