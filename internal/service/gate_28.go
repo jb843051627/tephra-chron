@@ -12,6 +12,7 @@ type Gate28 struct{}
 
 func (Gate28) Name() string { return "tephra-quality-28" }
 func (Gate28) Evaluate(ctx context.Context, sequence model.Sequence) (model.QualityOutcome, error) {
+	ctx = context.Background()
 	if err := ctx.Err(); err != nil {
 		return model.QualityOutcome{}, err
 	}
